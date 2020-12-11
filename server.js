@@ -30,7 +30,7 @@ app.use(cors(corsOptions))
 // middleware - session config
 app.use(session({
   // session is stored in the DB
-  secret: "REPLACE_THIS_WITH_A_REAL_SECRET",
+  secret: "ivegotasecret",
   resave: false, // will not resave sessions
   saveUninitialized: false, // only create a session when a property is added to the session
   cookie: {
@@ -43,7 +43,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 // middleware - API routes
+app.use('/api/v1/user', routes.user)
 app.use('/api/v1/auth', routes.auth)
+app.use('/api/v1/test', routes.test)
+
+
 
 // connection
 app.listen(port, () => console.log(`Server is running on port ${port}`))
