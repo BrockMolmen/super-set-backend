@@ -7,18 +7,22 @@ const {response} = require('express')
 const searchApi = (req, res) => {
   //when react app makes a request to this route, we make a request to the API
   console.log("the params are", req.query.q)
-  // axios.get(`https://www.giantbomb.com/api/search/?api_key=193eb6224623fc6236f58655173df88e82541b3a&format=json&platforms=9&query=${ req.params.q }`)
-  axios.get(`https://www.giantbomb.com/api/search/?api_key=193eb6224623fc6236f58655173df88e82541b3a&format=json&platforms=9&query=super mario world`)
+  axios.get(`https://www.giantbomb.com/api/search/?api_key=193eb6224623fc6236f58655173df88e82541b3a&format=json&query=${ req.query.q }&resource=game`)
+  // axios.get(`https://www.giantbomb.com/api/search/?api_key=193eb6224623fc6236f58655173df88e82541b3a&format=json&platforms=9&query=super mario world`)
   .then( response => {
-    console.log(response.data)
+    let  searchResults = response.data.results
+    console.log(searchResults[0])
+    res.json(searchResults)
+    // console.log(response.data.results)
   })
+  .catch(err => console.log('error', err))
 }
 
 const allGames = (req, res) => {
   axios.get('https://www.giantbomb.com/api/games/?api_key=193eb6224623fc6236f58655173df88e82541b3a&format_json&platforms=9')
   .then(foundGames => {
     console.log(foundGames.data)
-    allGames({allGames: foundGames.data})
+    res.resdirect('/games/all', {allGames: foundGames.data})
   })
 }
 
