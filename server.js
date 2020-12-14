@@ -45,9 +45,10 @@ app.use(passport.session())
 // middleware - API routes
 app.use('/api/v1/user', routes.user)
 app.use('/api/v1/auth', routes.auth)
+// app.use('/api/v1/search', routes.game)
 app.use('/api/v1/game', routes.game)
 
 
 
 // connection
-app.listen(port, () => console.log(`Server is running on port ${port}`))
+app.listen(port, () => console.log(`Satan is my Motor 🤘 ${port} 🤘`))
