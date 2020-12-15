@@ -28,14 +28,23 @@ const index = (req, res) => {
 }
 
 const create = (req, res) => {
-  console.log(req.body)
   db.game.findOrCreate({
     where: {
-      name: req.body.gameData,
+      userId: req.body.userId,
+      name: req.body.name,
+      guid: req.body.guid
     }
   }).then(function (createGameSet) {
     res.json(createGameSet)
     // console.log(createGameSet)
+  })
+}
+
+const show = (req, res) => {
+  db.game.findAll({
+    where: {
+
+    }
   })
 }
 

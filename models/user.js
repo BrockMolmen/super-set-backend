@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.user.belongsToMany(models.game, {through:  'user_game'})
+      models.user.hasMany(models.game)
     }
   validPassword(passwordTyped) {
     return bcrypt.compareSync(passwordTyped, this.password);

@@ -10,11 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.game.belongsToMany(models.user, {through:  'user_game'})
+      models.game.belongsTo(models.user)
     }
   };
   game.init({
-    name: DataTypes.STRING
+    userId: DataTypes.INTEGER,
+    name: DataTypes.STRING,
+    guid: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'game',
