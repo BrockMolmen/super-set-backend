@@ -3,7 +3,7 @@ const router = require('express').Router()
 const ctrl = require('../controllers')
 
 // path search
-router.get('/search', ctrl.game.searchApi)
+// router.get('/search', ctrl.game.searchApi)
 
 
 // PATH = /api/v1/game
