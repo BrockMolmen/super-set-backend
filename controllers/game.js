@@ -17,7 +17,7 @@ const {response} = require('express')
 //   .catch(err => console.log('error', err))
 // }
 
-const allGames = (req, res) => {
+const index = (req, res) => {
   axios.get("https://www.giantbomb.com/api/games/?api_key=193eb6224623fc6236f58655173df88e82541b3a&format=json&platforms=9&filter=deck,api_detail_url,name,image,guid&sort=name:asc")
   .then( response => {
     // console.log(response.data)
@@ -27,7 +27,20 @@ const allGames = (req, res) => {
   .catch(err => console.log('error', err))
 }
 
+const create = (req, res) => {
+  console.log(req.body)
+  db.game.findOrCreate({
+    where: {
+      name: req.body.gameData,
+    }
+  }).then(function (createGameSet) {
+    res.json(createGameSet)
+    // console.log(createGameSet)
+  })
+}
+
 module.exports = {
   // searchApi,
-  allGames
+  index,
+  create
 }
