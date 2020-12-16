@@ -2,6 +2,7 @@ const db = require('../models')
 const axios = require('axios')
 const {response} = require('express')
 
+
 // API Requests
 
 // const searchApi = (req, res) => {
@@ -43,13 +44,18 @@ const create = (req, res) => {
 const show = (req, res) => {
   db.game.findAll({
     where: {
-
+      userId: req.params.id
     }
+  }).then((foundGameSet) => {
+    res.json(foundGameSet)
   })
 }
+
+
 
 module.exports = {
   // searchApi,
   index,
-  create
+  create,
+  show,
 }

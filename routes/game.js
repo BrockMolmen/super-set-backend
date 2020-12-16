@@ -9,6 +9,8 @@ const ctrl = require('../controllers')
 // PATH = /api/v1/game
 router.get('/all', ctrl.game.index)
 router.post('/all', ctrl.game.create)
+router.get('/:id', ctrl.game.show)
+
 
 
 module.exports = router

@@ -1,5 +1,6 @@
 module.exports = {
     game: require('./game'),
     user: require('./user'),
-    auth: require('./auth')
+    auth: require('./auth'),
+    superset: require('./superset')
 }
