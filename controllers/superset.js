@@ -13,9 +13,19 @@ const show = (req, res) => {
   })
 }
 
+const destroy = (req, res) => {
+  console.log(req.params)
+  db.game.destroy({
+    where: {
+      userId: req.params.id,
+      guid: req.params.guid
+    }
+  })
+}
 
 
 module.exports = {
-  show
+  show,
+  destroy
 }
 
