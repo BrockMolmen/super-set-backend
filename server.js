@@ -46,7 +46,8 @@ app.use(passport.session())
 app.use('/api/v1/auth', routes.auth)
 app.use('/api/v1/game', routes.game)
 app.use('/api/v1/profile', routes.user)
-app.use('/ap1/v1/superset', routes.superset)
+app.use('/api/v1/user', routes.user)
+app.use('/api/v1/superset', routes.superset)
 
 
 
