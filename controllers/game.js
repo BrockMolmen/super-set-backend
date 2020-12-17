@@ -1,9 +1,7 @@
 const db = require('../models')
 const axios = require('axios')
-const {response} = require('express')
 
-
-// API Requests
+// search request
 
 // const searchApi = (req, res) => {
 //   //when react app makes a request to this route, we make a request to the API
@@ -20,12 +18,12 @@ const {response} = require('express')
 
 const index = (req, res) => {
   axios.get("https://www.giantbomb.com/api/games/?api_key=193eb6224623fc6236f58655173df88e82541b3a&format=json&platforms=9&filter=deck,api_detail_url,name,image,guid&sort=name:asc")
-  .then( response => {
-    // console.log(response.data)
-    let theGames = response.data
-    res.json(theGames)
-  })
-  .catch(err => console.log('error', err))
+    .then(response => {
+      // console.log(response.data)
+      let theGames = response.data
+      res.json(theGames)
+    })
+    .catch(err => console.log('error', err))
 }
 
 const create = (req, res) => {
@@ -50,8 +48,6 @@ const show = (req, res) => {
     res.json(foundGameSet)
   })
 }
-
-
 
 module.exports = {
   // searchApi,

@@ -6,7 +6,7 @@ const login = (req, res) => {
 
 const register = (req, res) => {
   const { username, email, password } = req.body
-  
+
   // validate the POSTed data - making sure we have a name, an email, a pw
   if (!username || !email || !password) {
     return res.json({ message: 'Please enter a name, an email, and a password' })
