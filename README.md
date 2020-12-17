@@ -1,3 +1,3 @@
 # Welcome to the backend server of Super Set
 
-the Frontend is a lot prettier. 
+## the [Frontend](https://github.com/BrockMolmen/super-set-frontend) is a lot prettier. 
